@@ -1,0 +1,45 @@
+label{
+    display: block;
+    margin-bottom: 3%;
+}
+
+input[type="text"],input[type="number"]{
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    height: auto;
+    text-align: end;
+    padding: 3%;
+    width: 90%;
+    color: hsl(186, 14%, 43%);
+    font-weight: bolder;
+    font-size: 150%;
+}
+
+.container-btn{
+ display: grid; 
+ grid-template-columns: 33% 33% 33%;  
+}
+
+.btn{
+    margin: 2%;
+    font-size: 20px;
+    height: 50px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.btn-unselected{
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-selected{
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+    font-weight: bold;
+}

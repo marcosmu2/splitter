@@ -1,0 +1,10 @@
+<form [formGroup]="tippingForm">
+    <label for="bill">{{ language | i18nSelect:billMap }}</label>
+    <img src="../../assets/images/icon-dollar.svg" /><input id="bill" formControlName="bill" type="number" (input)="changes()" />
+    <label style="margin-top: 2%;" >{{ language | i18nSelect:selectTipMap }}</label>
+    <div class="container-btn">      
+        <div class="btn" *ngFor="let num of percentInput" (click)="changesPercent(num)" [class]="(percent === num) ?'btn-selected' : 'btn-unselected' ">{{num}}%</div>       
+    </div>
+    <label for="numberPeople" style="margin-top: 2%;">{{ language | i18nSelect:numberPeopleMap }}</label>
+    <img src="../../assets/images/icon-person.svg" /><input type="number" id="numberPeople" formControlName="numberPeople" (input)="changes()"  />
+</form>

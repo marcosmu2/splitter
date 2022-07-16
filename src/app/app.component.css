@@ -1,0 +1,17 @@
+.card{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 2%;
+    text-align: start;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.flags{
+    float: right;
+    cursor: pointer;
+    height: 30px;
+}

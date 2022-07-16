@@ -1,0 +1,24 @@
+<div>
+  <img class="flags" src="../assets/images/bandera_espana.png" (click)="changesLanguage('Spanish')" />
+  <img class="flags" src="../assets/images/bandera-de-estados-unidos.png" (click)="changesLanguage('English')" />
+</div>
+<br />
+<br />
+
+<div class="App">
+
+  <div class="text-primary text-big"> {{ language | i18nSelect:head1Map }} </div>
+  <div class="text-primary text-big"> {{ language | i18nSelect:head2Map }} </div>
+  <div class="card text-primary">
+    <app-inputs 
+      (onTipChanges)="changesTip($event)" 
+      [reset]="reset"
+      [language]="language">
+    </app-inputs>
+    <app-results 
+      [tipping]="tipping" 
+      (onReset)="resetChanges()"
+      [language]="language">
+    </app-results>
+  </div>
+</div>

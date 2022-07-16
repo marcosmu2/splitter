@@ -1,0 +1,30 @@
+<div class="resultContainer">
+    <div class="grid-container">
+        <div>
+            <div class="label1 label-container text-white">{{ language | i18nSelect:tipMap }}  
+            </div>
+        </div>
+        <div class="result">{{calculateTip() | currency:'ARS':'symbol-narrow':'1.2-2'}}</div>
+    </div>
+    <div class="grid-container">
+        <div>
+            <div class="label1 label-container text-white">{{ language | i18nSelect:tipMap }} 
+            </div>
+            <div>
+                <small class="label-container">{{ language | i18nSelect:personMap }}</small>
+            </div>
+        </div>
+        <div class="result">{{calculateTipPerPerson() | currency:'ARS':'symbol-narrow':'1.2-2'}}</div>
+    </div>
+    <div class="grid-container">
+        <div>
+            <div class="label1 label-container  text-white">Total 
+            </div>
+            <div>
+                <small class="label-container">{{ language | i18nSelect:personMap }}</small>
+            </div>
+        </div>
+        <div class="result">{{calculateTotalPerPerson() | currency:'ARS':'symbol-narrow':'1.2-2'}}</div>
+    </div>
+    <button class="btn-result" style="cursor: pointer;" (click)="reset()">{{ language | i18nSelect:resetMap }}</button>
+</div>
