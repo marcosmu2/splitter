@@ -22,6 +22,7 @@ export class InputsComponent implements OnChanges{
     "5","10","15","20","25"
   ]
   percent : string = "5";
+  isCustom : boolean = false;
 
   billMap : any = { "English" : "Bill", "Spanish" : "Cuenta" }
   selectTipMap : any = { "English" : "Select Tip %", "Spanish" : "Seleccione el % de Propina" }
@@ -34,10 +35,18 @@ export class InputsComponent implements OnChanges{
 
   changesPercent(newPercent: string){
     this.percent = newPercent;
+    this.isCustom = false;
     this.changes();
   }
 
   changes(){
+
+    console.log({
+      bill : (this.tippingForm.get("bill")?.value)?+this.tippingForm.get("bill")!.value! : 0,
+      numberPeople: (this.tippingForm.get("numberPeople")?.value) ? +this.tippingForm.get("numberPeople")!.value! : 0,
+      percent: +this.percent
+    })
+
     this.onTipChanges.emit({
       bill : (this.tippingForm.get("bill")?.value)?+this.tippingForm.get("bill")!.value! : 0,
       numberPeople: (this.tippingForm.get("numberPeople")?.value) ? +this.tippingForm.get("numberPeople")!.value! : 0,
@@ -49,8 +58,17 @@ export class InputsComponent implements OnChanges{
     this.tippingForm.get("bill")?.setValue(0);
     this.tippingForm.get("numberPeople")?.setValue(1);
     this.percent = "5";
+    this.isCustom = false;
   }
 
+  customSelected = () => {
+    this.percent = "0"
+    this.isCustom = true;
+  }
 
+  customChanges = (event: any) => {
+    this.percent = event.target.value
+    this.changes()
+  }
 
 }
