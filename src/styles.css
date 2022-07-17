@@ -22,6 +22,15 @@ body {
   .text-big{
     font-size: 24px;
   }
+
+  @media only screen and (max-width: 726px) {
+
+    .text-primary{
+      font-weight: 500;
+    
+    }
+
+  }
   
   
   
