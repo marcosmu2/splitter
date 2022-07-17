@@ -52,3 +52,10 @@
     color: hsl(183, 100%, 15%);
     font-weight: bold;
 }
+
+@media only screen and (max-width: 726px) {
+
+    .btn-result{
+        margin-top: 3%;
+    }
+}
