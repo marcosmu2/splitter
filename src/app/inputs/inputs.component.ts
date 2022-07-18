@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Tipping } from '../interface/Tipping';
 
@@ -8,7 +8,7 @@ import { Tipping } from '../interface/Tipping';
   styleUrls: ['./inputs.component.css']
 })
 export class InputsComponent implements OnChanges{
-  
+ 
     @Output() onTipChanges : EventEmitter<Tipping> = new EventEmitter()
     @Input() reset: boolean = false;
     @Input() language: string = "English"
@@ -28,10 +28,14 @@ export class InputsComponent implements OnChanges{
   selectTipMap : any = { "English" : "Select Tip %", "Spanish" : "Seleccione el % de Propina" }
   numberPeopleMap: any = { "English" : "Number of People", "Spanish" : "Cantidad de Personas" }
 
-  ngOnChanges(): void {
-    this.resetChanges()
-    this.changes()
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes["reset"]){
+      this.resetChanges()
+      this.changes()
+    }
   }
+
 
   changesPercent(newPercent: string){
     this.percent = newPercent;
@@ -40,13 +44,6 @@ export class InputsComponent implements OnChanges{
   }
 
   changes(){
-
-    console.log({
-      bill : (this.tippingForm.get("bill")?.value)?+this.tippingForm.get("bill")!.value! : 0,
-      numberPeople: (this.tippingForm.get("numberPeople")?.value) ? +this.tippingForm.get("numberPeople")!.value! : 0,
-      percent: +this.percent
-    })
-
     this.onTipChanges.emit({
       bill : (this.tippingForm.get("bill")?.value)?+this.tippingForm.get("bill")!.value! : 0,
       numberPeople: (this.tippingForm.get("numberPeople")?.value) ? +this.tippingForm.get("numberPeople")!.value! : 0,

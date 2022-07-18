@@ -1,5 +1,5 @@
 import { Tipping } from './interface/Tipping';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TraslationServiceService } from './services/traslation-service.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { TraslationServiceService } from './services/traslation-service.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'tipping-angular';
   tipping : Tipping = { bill:0, numberPeople: 1, percent: 15 }
   reset: boolean = false;
@@ -20,6 +20,7 @@ export class AppComponent {
     private translationServices : TraslationServiceService
   ){
     this.language = translationServices.currentLanguage;
+    this.reset = false;
   }
 
   changesTip(event: any){

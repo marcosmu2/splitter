@@ -18,4 +18,6 @@ export class TraslationServiceService {
     this.language = (LANGUAGES.includes(newLanguage)) ? newLanguage : "English";
   }
 
+  
+
 }
